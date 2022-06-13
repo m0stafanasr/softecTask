@@ -1,0 +1,31 @@
+@import '../../../styles.scss';
+
+#navbar{
+  background-color:   #277874;
+}
+
+#title{
+    color: #dfdddd;
+    font-weight: bolder;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: #dfdddd;
+   
+}
+.tabs{
+    color: #dfdddd;
+    text-decoration: none;
+     font-size: larger;
+    font-weight: 600;
+    margin: 1em;
+}
+.nav-link:hover{
+   background-color:  #333333;
+    
+}
+
+.menuOpen{
+    color: #dfdddd;
+}
