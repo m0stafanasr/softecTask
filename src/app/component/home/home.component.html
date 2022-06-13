@@ -1,7 +1,7 @@
 <div>
     <div class="row m-0 d-flex justify-content-center mx-sm-2">
         
-        <div *ngFor="let product of products" class="card col-lg-2 col-md-4 mx-3 my-2">
+        <div *ngFor="let product of products" class="card col-lg-2 col-md-4 mx-3 my-2" [ngClass]="{'lowQuantity':product.AvailablePieces < 5, 'outOfStock':product.AvailablePieces == 0}">
             <img class="card-img-top" [src]="product.ProductImg">
             <div class="card-body">
                 <h5 class="card-title">{{product.ProductName}}</h5>
@@ -9,7 +9,7 @@
                     <div class="card-text mx-0 col-4 d-flex text-center align-items-center">{{product.ProductPrice}}</div>
                     <div class="card-text mx-0 col-4 d-flex text-center align-items-center">{{product.AvailablePieces}}</div>
                  
-                    <i class="btn col-3 bi bi-plus-square-fill" id="add"></i>
+                    <i class="btn col-3 bi bi-plus-square-fill" id="add" [hidden]="product.AvailablePieces == 0"></i>
                 </div>
                 <div class="row d-flex justify-content-center   ">
                 </div>
