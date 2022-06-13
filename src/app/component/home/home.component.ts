@@ -21,7 +21,10 @@ export class HomeComponent implements OnInit {
   getProducts(){
     this.productService.getProducts().subscribe(e=>this.products=e);
    // this.returnedProds.subscribe(e=>this.products =e)
-
+  }
+  
+  add(id){
+    console.log(id+ 'added')
   }
 
 }
