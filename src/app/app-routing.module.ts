@@ -4,7 +4,10 @@ import { HomeComponent } from './component/home/home.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'home', component:HomeComponent}
+  {path:'home', component:HomeComponent},
+  {path:'products', loadChildren:()=>import('src/app/component/products/products/products.module').then(p=>p.ProductsModule)},
+
+  {path:'**', redirectTo:'/home'},
 ];
 
 @NgModule({
