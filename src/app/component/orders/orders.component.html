@@ -1,1 +1,38 @@
-<p>orders works!</p>
+<!-- <div class="container-fluid">
+<div *ngFor="let order of orders">
+<p>{{order.OrderDate}}</p>
+</div>
+
+</div> -->
+<div class="container-fluid">
+    <div class="row text-center">
+        <p id="title">All Orders</p>
+    </div>
+    <div class="row d-flex justify-content-center mx-2">
+        <table class="table">
+            <thead>
+              <tr class="text-center">
+                <th  scope="col">Date</th>
+                <th scope="col">Customer</th>
+                <th scope="col">products number</th>
+                <th scope="col">payment Type</th>
+                <th scope="col">Total</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr class="text-center" *ngFor="let order of orderMap">
+                <td class="text-start" scope="row">{{order.orderDate|date}}</td>
+                <td>{{order.userName}}</td>
+                <td>{{order.noOfProducts}}</td>
+                <td>{{order.paymentType}}</td>
+                <td>{{order.total}}</td>
+                <td><button class="btn btn-success" (click)="showDetails()"><b>Details</b></button></td>
+              </tr>
+            </tbody>
+          </table>
+        
+    </div>
+</div>
+
+
