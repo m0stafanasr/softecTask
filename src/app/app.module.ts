@@ -7,27 +7,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { ProductsService } from './services/products.service';
-import { OrdersComponent } from './component/orders/orders.component';
-import { ProductsComponent } from './component/products/products.component';
-import { OrderDetailsComponent } from './component/order-details/order-details.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent,
-  
-   
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    NgbModule,
-    
+    HttpClientModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
