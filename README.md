@@ -34,7 +34,9 @@ A component that returns and shows all the products in the JSON file in the form
  
 to make it more simple to see all the orders in less amount of time, the order details shown in a popup where it will show the data and get back to the orders page with no reload.
 
+## important Notes 
 
+some dates don't show up as angular couldn't convert them using date pipe, However their value still be readed
 
 ## Development server
 
