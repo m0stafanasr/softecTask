@@ -3,3 +3,10 @@
     font-weight: 700;
     color: #023734;
 }
+#card{
+    box-shadow: 2px 3px 6px 2px grey;
+}
+
+#card:hover{
+    cursor: pointer;
+}
