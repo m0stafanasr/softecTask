@@ -13,12 +13,14 @@ import { OrderDetailsComponent } from './component/order-details/order-details.c
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
+    FooterComponent,
   
    
   ],
