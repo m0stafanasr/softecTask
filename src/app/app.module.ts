@@ -11,7 +11,8 @@ import { OrdersComponent } from './component/orders/orders.component';
 import { ProductsComponent } from './component/products/products.component';
 import { OrderDetailsComponent } from './component/order-details/order-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { OrderComponent } from './order/order.component';
+import { OrderComponent } from './component/orders/order/order.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [

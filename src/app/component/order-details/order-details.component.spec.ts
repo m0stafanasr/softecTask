@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { OrdersService } from 'src/app/services/orders.service';
 
 import { OrderDetailsComponent } from './order-details.component';
 
@@ -8,7 +11,9 @@ describe('OrderDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderDetailsComponent ]
+      declarations: [ OrderDetailsComponent],
+      imports:[HttpClientTestingModule,],
+      providers:[OrdersService, NgbActiveModal]
     })
     .compileComponents();
 

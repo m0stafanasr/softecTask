@@ -2,6 +2,30 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
 
+# Project Description :
+
+Ecommerce project consists of two modules [Products Module - Orders Module] and a navbar componenent that holds navbar .
+
+## Navbar Component 
+
+We have 3 main pages [ Products - Cart - Orders ]
+each can access by navbar located in the navbar Component.
+
+## Products Page
+
+A component that returns and shows all the products in the JSON file in the form of cards, and in every card there are 2 buttons (edit & add) which will be functional in further development.
+
+## Orders Page 
+ 
+ A component that returns and shows all the orders (made by the user or already exist in JSON File), in the form of cards where every card is a seperate order contains its own data (total price, user who made the order & date). 
+ 
+ 
+ ## Order Details Popup  
+ 
+to make it more simple to see all the orders in less amount of time, the order details shown in a popup where it will show the data and get back to the orders page with no reload.
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

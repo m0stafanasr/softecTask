@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrdersComponent } from '../orders.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from 'src/app/services/orders.service';
-import { OrderComponent } from 'src/app/order/order.component';
+import { OrderComponent } from 'src/app/component/orders/order/order.component';
 import { OrderDetailsComponent } from '../../order-details/order-details.component';
 
 const routes:Routes=[
