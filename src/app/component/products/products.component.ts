@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { OrdersService } from 'src/app/services/orders.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { Products } from 'src/app/viewModels/products';
 @Component({
@@ -12,12 +13,13 @@ export class ProductsComponent implements OnInit {
   returnedProds = this.allProducts.asObservable();
   products:Products[]=[];
   cart:any[]=[]
-  constructor(private productService:ProductsService) { }
+  constructor(private productService:ProductsService, private orderService: OrdersService) { }
 
   ngOnInit(): void {
     this.getProducts();
    let oldCart = localStorage.getItem('cart');
    
+   this.orderService.cartAmount.next(null);
     let returnedCart = JSON.parse(oldCart)
      
      if(oldCart){
@@ -44,7 +46,8 @@ export class ProductsComponent implements OnInit {
     }
     this.cart.push({prodId:id, quantity:1})   
     localStorage.setItem('cart', JSON.stringify(this.cart))
-    this.cart = []
+    this.orderService.cartAmount.next(this.cart.length);
+    this.cart = [];
   }
 
 edit(){

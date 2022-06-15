@@ -17,6 +17,8 @@ export class OrdersService {
   returned = new BehaviorSubject<Order[]>([]);
   return= this.returned.asObservable();
   HttpOption;
+  cartAmount= new BehaviorSubject<number>(0);
+  updateAmount = this.cartAmount.asObservable()
   constructor(private httpClient:HttpClient) { 
     this.HttpOption={
       headers:new HttpHeaders({
@@ -54,6 +56,7 @@ returnUser(id):Observable<Users>{
 returnPrices(id){
   return this.httpClient.get<Products[]>(this.productsFile).pipe(map(products=>{return products.find(prod=>{return prod.ProductId == id})}))
 }
+
 
 
 

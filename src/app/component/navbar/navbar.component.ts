@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, DoCheck, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { OrdersService } from 'src/app/services/orders.service';
 import { CartComponent } from '../cart/cart.component';
 
 @Component({
@@ -9,16 +10,16 @@ import { CartComponent } from '../cart/cart.component';
 })
 export class NavbarComponent implements OnInit, DoCheck {
 products:any[]=[]
-cartProds:number=0;
-  constructor(private modalService: NgbModal, private cd: ChangeDetectorRef) { }
+cartProds:number=0
+amount = null
+  constructor(private modalService: NgbModal, private cd: ChangeDetectorRef, private orderService:OrdersService) { }
 
   ngDoCheck(): void {
+    this.orderService.cartAmount.subscribe(e=>this.amount = e);
 
-    
-    this.cartProds == this.products.length+1;
-    this.cd.detectChanges()
   }
   ngOnInit(): void {
+  
   }
   openCart(){
    let local = localStorage.getItem('cart');

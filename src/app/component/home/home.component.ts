@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   cart:any[]=[];
   orderId= new BehaviorSubject(0)
   
-  constructor(private productService:ProductsService) {
+  constructor(private productService:ProductsService, private orderService: OrdersService) {
   }
   
   ngOnInit(): void {
@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     this.productService.getProducts().subscribe(e=>this.products=e);
     let oldCart = localStorage.getItem('cart');
    
+    this.orderService.cartAmount.next(null);
     let returnedCart = JSON.parse(oldCart)
      
      if(oldCart){
@@ -33,7 +34,6 @@ export class HomeComponent implements OnInit {
       localStorage.setItem('cart', JSON.stringify(this.cart))
       this.cart = []
     }
- 
   }
 
 
@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
     }
     this.cart.push({prodId:id, quantity:1})   
     localStorage.setItem('cart', JSON.stringify(this.cart))
+    this.orderService.cartAmount.next(this.cart.length);
     this.cart = []
   }
   edit(){
