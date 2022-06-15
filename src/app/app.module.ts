@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FooterComponent } from './component/footer/footer.component';
+import { CartComponent } from './component/cart/cart.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FooterComponent } from './component/footer/footer.component';
 
     NavbarComponent,
     FooterComponent,
+    CartComponent,
   
    
 

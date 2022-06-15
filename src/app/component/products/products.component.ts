@@ -16,14 +16,15 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    let oldCart = localStorage.getItem('cart');
+   let oldCart = localStorage.getItem('cart');
    
     let returnedCart = JSON.parse(oldCart)
      
      if(oldCart){
       returnedCart.map(prods=>this.cart.push(prods));
-      localStorage.removeItem('cart');
+
       localStorage.setItem('cart', JSON.stringify(this.cart))
+      this.cart = []
     }
   }
 
@@ -34,9 +35,16 @@ export class ProductsComponent implements OnInit {
   
   add(id){
     console.log(id+ 'added')
-
+    let oldCart = localStorage.getItem('cart');
+   
+    let returnedCart = JSON.parse(oldCart)
+     
+     if(oldCart){
+      returnedCart.map(prods=>this.cart.push(prods));
+    }
     this.cart.push({prodId:id, quantity:1})   
     localStorage.setItem('cart', JSON.stringify(this.cart))
+    this.cart = []
   }
 
 edit(){
