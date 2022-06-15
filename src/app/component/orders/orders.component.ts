@@ -36,13 +36,7 @@ userName= new BehaviorSubject({})
 
   }
 
-  setLocal(){
 
-    console.log(this.orders,"hol;a")
-    let orders = JSON.stringify(this.orders);
-    console.log(orders)
-    localStorage.setItem('orders', orders);
-  }
   
 
    createCard(){
@@ -60,7 +54,7 @@ userName= new BehaviorSubject({})
         });
         });
       })
-       console.log(this.orderMap)
+
 
   })
   }
