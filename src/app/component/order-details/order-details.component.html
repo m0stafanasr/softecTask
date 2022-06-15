@@ -1,1 +1,76 @@
-<p>order-details works!</p>
+ <div class="modal-content">
+<div class="modal-header">
+    <h4 class="modal-title">Order Details</h4>
+    <button type="button" class="close bg-danger border border-0" aria-label="Close"
+        (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<hr>
+<div class="modal-body">
+    <div class="row heading  ms-3">
+        Product Details
+    </div>
+    <div class="row my-2" *ngFor="let product of products">
+            <div class="col-lg-3 col-md-12">
+                <img class="col-10" [src]="product.prod.ProductImg">
+            </div>
+            <div class="col-9">
+                <div class="row mb-4">
+                    <div class="col-lg-2 col-md-6 col-sm-6"><b>Product Name: </b></div> 
+                    <div class="col-lg-3 col-md-6 col-sm-6">{{ product.prod.ProductName}} </div> 
+                    <div class="col-lg-2 col-md-6 col-sm-6 d-flex justify-content-lg-end"><b>unit Price: </b></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6"> {{product.prod.ProductPrice}}</div>
+                </div>
+                <div class="row mb-2">
+                   <div class="col-lg-2 col-md-6 col-sm-6"><b>quantity: </b></div> 
+                   <div class="col-lg-3 col-md-6 col-sm-6">{{ product.quantity}} </div> 
+                </div>
+            </div>
+            <div class="col-3">
+                
+            </div>
+  
+        
+    </div>
+    <div class="row mt-4 ms-3 heading">
+        User Details
+    </div>
+    <div class="row my-2">
+        <div class="row mb-3">
+        <div class="col-lg-1 col-md-6 col-sm-6"><b>Name: </b></div> 
+        <div class="col-lg-2 col-md-6 col-sm-6 mb-2"> {{user.Name}}</div> 
+        <div class="col-lg-2 col-md-6 col-sm-5 d-flex justify-content-lg-end"><b>Phone: </b></div>
+        <div class="col-lg-3 col-md-6 col-sm-5"> {{user.Phone}}</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-md-6 col-sm-6"><b>Email: </b></div>
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-2">{{user.Email}}</div>
+        <div class="col-lg-1 col-md-6 col-sm-6"><b>Address: </b></div>
+        <div class="col-lg-5 col-md-6 col-sm-6">{{user.Address}}</div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="activeModal.dismiss('Cross click')">Close</button>
+</div>
+<!-- <div class="modal-header">
+    <h4 class="modal-title">Delete {{order.name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<hr>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="form-group">
+                <p>Are you sure you want to delete {{order.name}}?</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.dismiss('Cross click')">Close</button>
+    <button type="button" class="btn btn-outline-success" (click)="edit()">Delete</button>
+</div>-->

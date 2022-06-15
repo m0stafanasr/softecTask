@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { OrdersService } from '../../../services/orders.service';
+import { Order } from '../../../viewModels/orders';
 
 import { OrderComponent } from './order.component';
 
@@ -8,7 +11,8 @@ describe('OrderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderComponent ]
+      declarations: [ OrderComponent ],
+      imports: [HttpClientTestingModule, ], providers: [OrdersService]
     })
     .compileComponents();
 
@@ -20,4 +24,6 @@ describe('OrderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+ 
 });

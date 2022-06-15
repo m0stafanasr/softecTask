@@ -48,7 +48,7 @@ returnUsers(){
   this.getUsers().subscribe(e=>this.users.next(e))
 }
 
-returnUser(id){
+returnUser(id):Observable<Users>{
   return this.getUsers().pipe(map(users=>{return users.find(user=>{return user.Id == id})}))
 }
 returnPrices(id){
