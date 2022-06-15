@@ -4,18 +4,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrdersComponent } from '../orders.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from 'src/app/services/orders.service';
+import { OrderComponent } from 'src/app/order/order.component';
+import { OrderDetailsComponent } from '../../order-details/order-details.component';
 
 const routes:Routes=[
   {path:"", component:OrdersComponent},
-  
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    OrderComponent,
+    OrdersComponent,
+    OrderDetailsComponent,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    
   ],
   providers:[OrdersService]
 })

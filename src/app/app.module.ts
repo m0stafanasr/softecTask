@@ -9,18 +9,23 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { ProductsService } from './services/products.service';
 import { OrdersComponent } from './component/orders/orders.component';
 import { ProductsComponent } from './component/products/products.component';
+import { OrderDetailsComponent } from './component/order-details/order-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    OrdersComponent,
+  
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

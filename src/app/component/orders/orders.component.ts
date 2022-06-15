@@ -8,7 +8,7 @@ import {Users} from 'src/app/viewModels/users'
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
 orders:Order[]=[]
@@ -25,7 +25,7 @@ userName= new BehaviorSubject({})
 
     this.orderService.returnedOrders();
     this.orderService.returnUsers()
-    this.orderService.return.subscribe(e=>e.map(e=>this.orders.push(e)) );
+
     this.orderService.users.subscribe(u=> u.map(e=>this.users.push(e)));
 
     this.createCard();
@@ -40,40 +40,26 @@ userName= new BehaviorSubject({})
     console.log(orders)
     localStorage.setItem('orders', orders);
   }
-  getTotals(id){
- 
-    let arr=[]
-    this.orderService.getOrder(id).subscribe(t=>{
-      t.Products.map(e=>this.orderService.returnPrices(e.ProductId).subscribe(r=>{
-        arr.push(r.ProductPrice);
-       var totals = arr.reduce((prev:any, crnt:any) => {
-        return prev + crnt;
-        }, 0);
-       
-        return totals
-      })
-    )
-    })
-  }
+  
 
    createCard(){
+    debugger
     this.orderService.return.subscribe(m=>{
-      m.map(  e=>{
-        this.orderService.returnUser(e.UserId).subscribe( user=>{ this.orderMap.push({
+      m.map( (e)=>{
+        this.orderService.returnUser(e.UserId).subscribe(user=>{ this.orderMap.push({
           orderDate: e.OrderDate,
           userName:user.Name,
           noOfProducts:e.Products.length,
           paymentType:e.PaymentType,
-          total:  this.getTotals(e.OrderId)
+          products: e.Products
+         // total: this.getTotals(e.Products),
         });
-        })
+        });
       })
        console.log(this.orderMap)
-    
+    debugger
   })
   }
 
-  showDetails(){
 
-  }
 }
