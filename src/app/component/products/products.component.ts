@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit {
      if(oldCart){
       returnedCart.map(prods=>this.cart.push(prods));
       localStorage.removeItem('cart');
+      localStorage.setItem('cart', JSON.stringify(this.cart))
     }
   }
 
