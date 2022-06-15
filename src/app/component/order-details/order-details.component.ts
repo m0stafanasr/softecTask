@@ -25,7 +25,7 @@ products:any[]=[]
                                
     this.product.subscribe(p=>this.products.push({prod:p, quantity: quantity}));
     this.products.shift()
-    console.log(this.products)
+
   }
   getProducts(id){
     this.products.unshift()
