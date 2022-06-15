@@ -16,6 +16,15 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    let oldCart = localStorage.getItem('cart');
+   
+    let returnedCart = JSON.parse(oldCart)
+     
+     if(oldCart){
+      returnedCart.map(prods=>this.cart.push(prods));
+      localStorage.removeItem('cart');
+      localStorage.setItem('cart', JSON.stringify(this.cart))
+    }
   }
 
   getProducts(){
