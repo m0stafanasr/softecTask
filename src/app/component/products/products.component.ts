@@ -10,7 +10,8 @@ import { Products } from 'src/app/viewModels/products';
 export class ProductsComponent implements OnInit {
   allProducts = new BehaviorSubject<Products[]>([])
   returnedProds = this.allProducts.asObservable();
-  products:Products[]=[]
+  products:Products[]=[];
+  cart:any[]=[]
   constructor(private productService:ProductsService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,9 @@ export class ProductsComponent implements OnInit {
   
   add(id){
     console.log(id+ 'added')
+
+    this.cart.push({prodId:id, quantity:1})   
+    localStorage.setItem('cart', JSON.stringify(this.cart))
   }
 
 edit(){
