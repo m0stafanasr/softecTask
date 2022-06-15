@@ -6,10 +6,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Ecommerce project consists of two modules [Products Module - Orders Module] and a navbar componenent that holds navbar .
 
+
+## project Initialization
+
+ 1- first install all the Node Packages using npm install.
+ 2- then run the angular project using 'ng serve' command.
+ 3- after running you will find these components running.
 ## Navbar Component 
 
 We have 3 main pages [ Products - Cart - Orders ]
 each can access by navbar located in the navbar Component.
+
+## Home Page
+
+the main component that will open upon running the project, in this page, only products with quantity more than 0 will be shown.
 
 ## Products Page
 

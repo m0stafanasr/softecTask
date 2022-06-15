@@ -26,5 +26,7 @@ export class HomeComponent implements OnInit {
   add(id){
     console.log(id+ 'added')
   }
-
+  edit(){
+    
+  }
 }
