@@ -23,17 +23,24 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.productService.getProducts().subscribe(e=>this.products=e);
+
+    let oldCart = localStorage.getItem('cart');
+   
+    let returnedCart = JSON.parse(oldCart)
+     
+     if(oldCart){
+      returnedCart.map(prods=>this.cart.push(prods));
+      localStorage.removeItem('cart');
+    }
   }
 
-  getProducts(){
-    this.productService.getProducts().subscribe(e=>this.products=e);
-   // this.returnedProds.subscribe(e=>this.products =e)
-  }
+
   
   add(id){
     console.log(id+ 'added')
-    this.cart.push({prodId:id, quantity:1})   
-    localStorage.setItem('cart', JSON.stringify(this.cart))
+    this.cart.push({prodId:id, quantity:1})
+
+  localStorage.setItem('cart', JSON.stringify(this.cart))
   }
   edit(){
     
