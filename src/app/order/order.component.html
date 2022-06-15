@@ -1,0 +1,40 @@
+<!-- 
+<tr class="text-center">
+    <td class="text-start" scope="row"></td>
+    <td>{{order.userName}}</td>
+    <td>{{order.noOfProducts}}</td>
+    <td></td>
+    <td>{{orderTotal}}</td>
+    <td><button class="btn btn-success" (click)="showDetails()"><b>Details</b></button></td>
+  </tr> -->
+
+<!-- <div class="card col-lg-4 col-md-6 col-sm-12 mx-2"> -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6 mx-1">
+                <label>
+                    user: {{order.userName}}
+                </label>
+            </div>
+            <div class="col-5 mx-1 px-3">
+                <label>
+                    Date: {{order.orderDate | date}}
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 mx-1">
+                
+                    payment Type: {{order.paymentType}}
+                
+            </div>
+            <div class="col-5 mx-1">
+                
+                    Order Total: {{orderTotal| currency:'usd':'2'}}
+                
+            </div>
+        </div>
+
+
+    </div>
+<!-- </div> -->
