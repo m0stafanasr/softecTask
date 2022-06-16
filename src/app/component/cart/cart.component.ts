@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { OrdersService } from 'src/app/services/orders.service';
 import { Order } from 'src/app/viewModels/orders';
 import { Users } from 'src/app/viewModels/users';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -20,6 +20,7 @@ export class CartComponent implements OnInit, DoCheck {
   returnUsers:Users[]
   newOrder:FormGroup<any>;
   ref:ElementRef
+  submit:boolean=false
   constructor(private orderService:OrdersService, public activeModal:NgbActiveModal, private fb:FormBuilder,
     private formsManager: NgFormsManager
     ) { 
@@ -64,24 +65,30 @@ export class CartComponent implements OnInit, DoCheck {
     this.activeModal.dismiss('Cross click')
   }
   placeOrder(){
-  //  this.orderService.addOrder(this.newOrder)
-   let order = JSON.stringify(this.newOrder);
-   localStorage.setItem('Orders', order)
-   // console.log(this.newOrder.value)
+    this.submit=true;
+  Swal.fire({
+    icon: 'info',
+    title: 'Order Placed!',
+    text: 'your order Have been placed please wait for it ',
+  })
+  this.activeModal.dismiss('Cross click');
+  localStorage.removeItem('cart');
 }
-
-  initForm(){
-    let id = Math.floor(Math.random()*90000) + 10000
-    let date = new Date()
-    console.log(date)
+initForm(){
+  let id = Math.floor(Math.random()*90000) + 10000
+  let date = new Date()
+  console.log(date)
   
-    this.newOrder = this.fb.group({
-      OrderId: [id],
-      OrderDate: [date],
-      UserId: ['', Validators.required],
+  return this.newOrder = this.fb.group({
+    OrderId: [id],
+    OrderDate: [date],
+      UserId: ["", Validators.required],
       Products: [this.products],
-      PaymentType: [""]
+      PaymentType: ["", Validators.required]
     })
+  }
 
+  get form(){
+   return  this.newOrder.controls
   }
 }
