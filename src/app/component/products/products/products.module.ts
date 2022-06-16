@@ -5,6 +5,7 @@ import { ProductsComponent } from '../products.component';
 import { ProductsService } from 'src/app/services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProductPopUpComponent } from '../product-pop-up/product-pop-up.component';
 
 const route:Routes=[
   {path:"", component:ProductsComponent}
@@ -12,7 +13,8 @@ const route:Routes=[
 
 @NgModule({
   declarations: [
-    ProductsComponent
+    ProductsComponent,
+    ProductPopUpComponent
 
   ],
   imports: [
