@@ -6,6 +6,8 @@ import { ProductsService } from 'src/app/services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProductPopUpComponent } from '../product-pop-up/product-pop-up.component';
+import { ProductComponent } from '../product/product.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const route:Routes=[
   {path:"", component:ProductsComponent}
@@ -14,13 +16,15 @@ const route:Routes=[
 @NgModule({
   declarations: [
     ProductsComponent,
-    ProductPopUpComponent
+    ProductPopUpComponent,
+    ProductComponent
 
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule.forChild(route)
+    RouterModule.forChild(route),
+    ReactiveFormsModule
   ],
   providers:[ProductsService]
 })
