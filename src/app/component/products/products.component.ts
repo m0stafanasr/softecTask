@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { OrdersService } from 'src/app/services/orders.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -12,8 +12,9 @@ export class ProductsComponent implements OnInit {
   allProducts = new BehaviorSubject<any[]>([])
   returnedProds = this.allProducts.asObservable();
   products:any[]=[];
-  cart:any[]=[]
-  constructor(private productService:ProductsService, private orderService: OrdersService) { }
+  cart:any[]=[];
+
+  constructor(private productService:ProductsService,) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -35,22 +36,5 @@ export class ProductsComponent implements OnInit {
 
   }
   
-  add(id){
-    console.log(id+ 'added')
-    let oldCart = localStorage.getItem('cart');
-   
-    let returnedCart = JSON.parse(oldCart)
-     
-     if(oldCart){
-      returnedCart.map(prods=>this.cart.push(prods));
-    }
-    this.cart.push({ProductId:id, Quantity:1})   
-    localStorage.setItem('cart', JSON.stringify(this.cart))
-    this.orderService.cartAmount.next(this.cart.length);
-    this.cart = [];
-  }
-
-edit(){
-  
-}
+ 
 }

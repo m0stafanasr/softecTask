@@ -18,7 +18,6 @@ export class CartComponent implements OnInit, DoCheck {
   payment=[]
   prodArr=[]
   returnUsers:Users[]
-  addedProd:FormGroup<any>;
   newOrder:FormGroup<any>;
   ref:ElementRef
   constructor(private orderService:OrdersService, public activeModal:NgbActiveModal, private fb:FormBuilder,

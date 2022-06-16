@@ -1,0 +1,37 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Order Details</h4>
+        <button type="button" class="close bg-danger border border-0" aria-label="Close"
+        (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form class="form" [formGroup]="editForm">
+    <div class="row my-3">
+        <div class="col-lg-2 col-md-4 col-sm-6 d-flex justify-content-end">
+            <b>Product Name: </b>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <input type="text" formControlName="Name">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 d-flex justify-content-end">
+            <b>Product Price: </b>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <input type="number" formControlName="Price">
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col-lg-2 col-md-4 col-sm-6 d-flex justify-content-end">
+            <b>Product quantity: </b>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <input type="number" formControlName="Pieces" >
+        </div>
+    </div>
+</form>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="activeModal.dismiss('Cross click')">Close</button>
+    <button type="button" class="btn btn-outline-success" (click)="edit()">submit Edit</button>
+</div>
+</div>
