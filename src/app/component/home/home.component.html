@@ -19,14 +19,11 @@
                     <div class="card-text mx-0 col-4 d-flex text-center align-items-center">
                         <b>{{product.AvailablePieces}}</b></div>
                 </div>
-                <div class="row d-flex justify-content-end">
-                    <div class="col-6 justify-content-center d-flex">
+                <div class="row d-flex justify-content-center">
+        
                         <i class="btn col-3 bi bi-plus-square-fill" id="add" (click)="add(product.ProductId)"
                             [hidden]="product.AvailablePieces == 0"></i>
-                    </div>
-                    <div class="col-6 justify-content-center d-flex align-items-center">
-                        <i class="bi bi-pencil-square" id="edit" (click)="edit()"></i>
-                    </div>
+               
 
                 </div>
 
