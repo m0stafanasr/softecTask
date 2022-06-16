@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from '../products.component';
 import { ProductsService } from 'src/app/services/products.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { ProductPopUpComponent } from '../product-pop-up/product-pop-up.component';
 import { ProductComponent } from '../product/product.component';
 import { ReactiveFormsModule } from '@angular/forms';
