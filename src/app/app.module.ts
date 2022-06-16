@@ -15,7 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FooterComponent } from './component/footer/footer.component';
-import { ProductPopUpComponent } from './component/products/product-pop-up/product-pop-up.component';
+import { CartComponent } from './component/cart/cart.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -25,7 +27,7 @@ import { ProductPopUpComponent } from './component/products/product-pop-up/produ
 
     NavbarComponent,
     FooterComponent,
-   
+    CartComponent,
   
    
 
@@ -33,7 +35,10 @@ import { ProductPopUpComponent } from './component/products/product-pop-up/produ
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule,
+    NgSelectModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

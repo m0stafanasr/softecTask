@@ -11,26 +11,27 @@ import { Products } from 'src/app/viewModels/products';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  allProducts = new BehaviorSubject<Products[]>([])
+  allProducts = new BehaviorSubject<any[]>([])
   returnedProds = this.allProducts.asObservable();
-  products:Products[]=[];
+  products:any[]=[];
   cart:any[]=[];
   orderId= new BehaviorSubject(0)
   
-  constructor(private productService:ProductsService) {
+  constructor(private productService:ProductsService, private orderService: OrdersService) {
   }
   
   ngOnInit(): void {
 
     this.productService.getProducts().subscribe(e=>this.products=e);
-
     let oldCart = localStorage.getItem('cart');
    
     let returnedCart = JSON.parse(oldCart)
      
      if(oldCart){
       returnedCart.map(prods=>this.cart.push(prods));
-      localStorage.removeItem('cart');
+
+      localStorage.setItem('cart', JSON.stringify(this.cart))
+      this.cart = []
     }
   }
 
@@ -38,9 +39,17 @@ export class HomeComponent implements OnInit {
   
   add(id){
     console.log(id+ 'added')
-    this.cart.push({prodId:id, quantity:1})
-
-  localStorage.setItem('cart', JSON.stringify(this.cart))
+    let oldCart = localStorage.getItem('cart');
+   
+    let returnedCart = JSON.parse(oldCart)
+     
+     if(oldCart){
+      returnedCart.map(prods=>this.cart.push(prods));
+    }
+    this.cart.push({ProductId:id, Quantity:1})   
+    localStorage.setItem('cart', JSON.stringify(this.cart))
+    this.orderService.cartAmount.next(this.cart.length);
+    this.cart = []
   }
   edit(){
     

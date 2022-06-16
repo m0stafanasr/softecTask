@@ -1,0 +1,76 @@
+<div class="modal-content">
+    <form class="form" [formGroup]="newOrder" #ref>
+    <div class="modal-header">
+        <h4 class="modal-title">Cart Details</h4>
+        <button type="button" class="close bg-danger border border-0" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <hr>
+    <div class="modal-body">
+        <div class="row heading ms-3 title">
+            order Details
+        </div>
+        <div >
+
+
+            <div class="row my-2" *ngFor="let product of prodArr">
+                <div class="col-lg-3 col-md-12">
+                    <img class="col-10" [src]="product.ProductImg">
+                </div>
+                <div class="col-9">
+                    <div class="row mb-4">
+                        <div class="col-lg-2 col-md-6 col-sm-6"><b>Product Name: </b></div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">{{ product.ProductName}} </div>
+                        <div class="col-lg-2 col-md-6 col-sm-6 d-flex justify-content-lg-end"><b>unit Price: </b></div>
+                        <div class="col-lg-3 col-md-6 col-sm-6"> {{product.ProductPrice}}</div>
+                    </div>
+
+                </div>
+            </div>
+            <Div class="row ms-5">
+                <div class="offset-lg-6 col-lg-2 col-md-6 d-flex justify-content-lg-end title">
+                  <b>Order Total: </b>  
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    {{total}}
+                </div>
+            </Div>
+        </div>
+        <div class="row mt-4 ms-3 heading title">
+            User Details
+        </div>
+        <div class="row my-2">
+            <div class="row mb-3 d-flex justify-content-center">
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 mb-2">
+                        <label class=" form-label col-lg-1 col-md-6 col-sm-6">
+                            <b>Name: </b>
+                        </label>
+                        <ng-select class="form-control input-group " [items]="returnUsers" placeholder="User Name"
+                            formControlName="UserId" bindLabel="Name" bindValue="Id">
+                        </ng-select> 
+                        
+                    <!--  <select>
+                            <option *ngFor="let user of return" [value]="user.Id">{{user.Name}}</option>
+                        </select>-->
+                    </div>
+                
+                <div class="form-group  col-lg-4 col-md-6 col-sm-5">
+                    <label class="form-label"><b>Payment type</b></label>
+                    <ng-select class="input-group  d-flex align-items-center form-control" [items]="payment" placeholder=""
+                        formControlName="PaymentType" bindLabel="payment" bindValue="payment">
+                       
+                    </ng-select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="empty()">empty cart</button>
+        <button class="btn btn-outline-success" (click)="placeOrder()">Place Order</button>
+    </div>
+
+</form>
+</div>
