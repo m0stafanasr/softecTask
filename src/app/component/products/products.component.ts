@@ -44,7 +44,7 @@ export class ProductsComponent implements OnInit {
      if(oldCart){
       returnedCart.map(prods=>this.cart.push(prods));
     }
-    this.cart.push({prodId:id, quantity:1})   
+    this.cart.push({ProductId:id, Quantity:1})   
     localStorage.setItem('cart', JSON.stringify(this.cart))
     this.orderService.cartAmount.next(this.cart.length);
     this.cart = [];

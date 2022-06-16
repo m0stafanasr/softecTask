@@ -9,7 +9,7 @@
     </div>
     <hr>
     <div class="modal-body">
-        <div class="row heading  ms-3">
+        <div class="row heading ms-3 title">
             order Details
         </div>
         <div >
@@ -28,40 +28,39 @@
                     </div>
 
                 </div>
-
-                
             </div>
-            <div class="row mb-2 d-none" *ngFor="let product of products">
-                <div class="col-lg-2 col-md-6 col-sm-6"><b>quantity: </b></div>
-                <div class="col-lg-3 col-md-6 col-sm-6" formControlName="Quantity">{{ product.quantity}} </div>
-                <div class="d-none" formControlName="ProductId">{{product.ProductId}}</div>
-            </div>
+            <Div class="row ms-5">
+                <div class="offset-lg-6 col-lg-2 col-md-6 d-flex justify-content-lg-end title">
+                  <b>Order Total: </b>  
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    {{total}}
+                </div>
+            </Div>
         </div>
-        <div class="row mt-4 ms-3 heading">
+        <div class="row mt-4 ms-3 heading title">
             User Details
         </div>
         <div class="row my-2">
-            <div class="row mb-3">
-                <div class="col-lg-1 col-md-6 col-sm-6"><b>Name: </b></div>
-                <div class="form-group input-group col-lg-4 col-md-6 col-sm-6 mb-2 form-group">
-                    <ng-select class="form-control" [items]="return" placeholder="User Name"
-                        formControlName="UserId" bindLabel="Name" bindValue="Id">
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item}}
-                        </ng-template>
-                    </ng-select> 
-                    
-                   <!--  <select>
-                        <option *ngFor="let user of return" [value]="user.Id">{{user.Name}}</option>
-                    </select>-->
-                </div>
+            <div class="row mb-3 d-flex justify-content-center">
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 mb-2">
+                        <label class=" form-label col-lg-1 col-md-6 col-sm-6">
+                            <b>Name: </b>
+                        </label>
+                        <ng-select class="form-control input-group " [items]="returnUsers" placeholder="User Name"
+                            formControlName="UserId" bindLabel="Name" bindValue="Id">
+                        </ng-select> 
+                        
+                    <!--  <select>
+                            <option *ngFor="let user of return" [value]="user.Id">{{user.Name}}</option>
+                        </select>-->
+                    </div>
                 
-                <div class="input-group col-lg-3 col-md-6 col-sm-5">
-                    <ng-select class="form-group input-group" [items]="payment" placeholder="Payment type"
+                <div class="form-group  col-lg-4 col-md-6 col-sm-5">
+                    <label class="form-label"><b>Payment type</b></label>
+                    <ng-select class="input-group  d-flex align-items-center form-control" [items]="payment" placeholder=""
                         formControlName="PaymentType" bindLabel="payment" bindValue="payment">
-                        <ng-template let-item="item">
-                            {{item}}
-                        </ng-template>
+                       
                     </ng-select>
                 </div>
             </div>

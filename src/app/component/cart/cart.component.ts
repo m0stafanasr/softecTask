@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, DoCheck, ElementRef, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgFormsManager } from '@ngneat/forms-manager';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { OrdersService } from 'src/app/services/orders.service';
 import { Order } from 'src/app/viewModels/orders';
 import { Users } from 'src/app/viewModels/users';
@@ -12,12 +12,12 @@ import { Users } from 'src/app/viewModels/users';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, DoCheck {
   products;
   empyCart:boolean = false
   payment=[]
   prodArr=[]
-  return:any[]=[]
+  returnUsers:Users[]
   addedProd:FormGroup<any>;
   newOrder:FormGroup<any>;
   ref:ElementRef
@@ -28,19 +28,28 @@ export class CartComponent implements OnInit {
       'Cash',
       'online'
     ]
-  this.orderService.getUsers().subscribe(e=>e.map(r=>this.return.push(r) ))
-
-}
+    
+    this.orderService.returnUsers()
+    this.orderService.returnUserss.subscribe(e=>this.returnUsers=e)
+  }
   dropDown = new BehaviorSubject([])
+  total=0
+
+  ngDoCheck(){
+        let prices = 0
+    this.prodArr.map(e=>prices += e.ProductPrice)
+    console.log(prices)
+    this.total = prices
+  }
   ngOnInit(): void {
     console.log(this.products)
     if(this.products){
-      this.products.map(e=>this.orderService.returnPrices(e.prodId).subscribe(prod=>this.prodArr.push(prod)) );
-
-      console.log(this.return)
+      this.products.map(e=>this.orderService.returnPrices(e.ProductId).subscribe(prod=>this.prodArr.push(prod)) );
+     
+      console.log(this.returnUsers)
       this.initForm();
     }
-    
+
     this.initForm();
   }
   empty(){
@@ -57,9 +66,9 @@ export class CartComponent implements OnInit {
   }
   placeOrder(){
   //  this.orderService.addOrder(this.newOrder)
-   // let order = JSON.stringify(this.newOrder);
-   // localStorage.setItem('Orders', order)
-    console.log(this.newOrder.value)
+   let order = JSON.stringify(this.newOrder);
+   localStorage.setItem('Orders', order)
+   // console.log(this.newOrder.value)
 }
 
   initForm(){
@@ -71,12 +80,7 @@ export class CartComponent implements OnInit {
       OrderId: [id],
       OrderDate: [date],
       UserId: ['', Validators.required],
-      Products: this.fb.array([
-       this.fb.group({
-        ProductId: [''],
-        Quantity:['']
-       })
-      ]),
+      Products: [this.products],
       PaymentType: [""]
     })
 

@@ -17,6 +17,7 @@ export class OrdersService {
   users= new BehaviorSubject<Users[]>([]);
   returned = new BehaviorSubject<Order[]>([]);
   return= this.returned.asObservable();
+  returnUserss = this.users.asObservable()
   HttpOption;
   cartAmount= new BehaviorSubject<number>(0);
   updateAmount = this.cartAmount.asObservable()
@@ -50,7 +51,7 @@ getUsers():Observable<Users[]>{
 }
 
 returnUsers(){
-  this.getUsers().subscribe(e=>this.users.next(e))
+ return this.getUsers().subscribe(e=>this.users.next(e))
 }
 
 returnUser(id):Observable<Users>{
