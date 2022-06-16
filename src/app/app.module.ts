@@ -16,6 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FooterComponent } from './component/footer/footer.component';
 import { CartComponent } from './component/cart/cart.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -33,7 +35,10 @@ import { CartComponent } from './component/cart/cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule,
+    NgSelectModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

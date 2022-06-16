@@ -9,9 +9,9 @@ import { Products } from 'src/app/viewModels/products';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  allProducts = new BehaviorSubject<Products[]>([])
+  allProducts = new BehaviorSubject<any[]>([])
   returnedProds = this.allProducts.asObservable();
-  products:Products[]=[];
+  products:any[]=[];
   cart:any[]=[]
   constructor(private productService:ProductsService, private orderService: OrdersService) { }
 
@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
    let oldCart = localStorage.getItem('cart');
    
-   this.orderService.cartAmount.next(null);
+   //this.orderService.cartAmount.next(null);
     let returnedCart = JSON.parse(oldCart)
      
      if(oldCart){

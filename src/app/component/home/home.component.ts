@@ -11,9 +11,9 @@ import { Products } from 'src/app/viewModels/products';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  allProducts = new BehaviorSubject<Products[]>([])
+  allProducts = new BehaviorSubject<any[]>([])
   returnedProds = this.allProducts.asObservable();
-  products:Products[]=[];
+  products:any[]=[];
   cart:any[]=[];
   orderId= new BehaviorSubject(0)
   
@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
     this.productService.getProducts().subscribe(e=>this.products=e);
     let oldCart = localStorage.getItem('cart');
    
-    this.orderService.cartAmount.next(null);
     let returnedCart = JSON.parse(oldCart)
      
      if(oldCart){
