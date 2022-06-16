@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Project Description :
 
 Ecommerce project consists of two modules [Products Module - Orders Module] and a navbar componenent that holds navbar .
-
+the project depends on local storage to handle the items in the cart before proceeding with the order.
 
 ## project Initialization
 
@@ -16,7 +16,7 @@ Ecommerce project consists of two modules [Products Module - Orders Module] and 
 
 We have 3 main pages [ Products - Cart - Orders ]
 each can access by navbar located in the navbar Component.
-
+and on the right side there is the cart component with the amount of items it have
 ## Home Page
 
 the main component that will open upon running the project, in this page, only products with quantity more than 0 will be shown.
@@ -24,12 +24,19 @@ the main component that will open upon running the project, in this page, only p
 ## Products Page
 
 A component that returns and shows all the products in the JSON file in the form of cards, and in every card there are 2 buttons (edit & add) which will be functional in further development.
+also in this page you can edit the amount of the products
 
+## product edit popUp
+
+ a pop up that allows you to update the value, name and price of the product.
+
+ ## cart PopUP
+
+  a pop up where you can view your cart and know the total price and proceed with the order.
+ 
 ## Orders Page 
  
  A component that returns and shows all the orders (made by the user or already exist in JSON File), in the form of cards where every card is a seperate order contains its own data (total price, user who made the order & date). 
- 
- 
  ## Order Details Popup  
  
 to make it more simple to see all the orders in less amount of time, the order details shown in a popup where it will show the data and get back to the orders page with no reload.
