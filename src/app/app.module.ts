@@ -24,7 +24,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
   declarations: [
     AppComponent,
     HomeComponent,
-
     NavbarComponent,
     FooterComponent,
     CartComponent,
