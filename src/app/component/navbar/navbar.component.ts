@@ -16,7 +16,10 @@ amount = null
 
   ngDoCheck(): void {
     this.orderService.cartAmount.subscribe(e=>this.amount = e);
-
+    let local = localStorage.getItem('cart')
+    if(!local){
+      this.amount = null
+    }
   }
   ngOnInit(): void {
   
